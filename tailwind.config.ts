@@ -1,30 +1,38 @@
-{
-  "name": "vidafit-training",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./app/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        base: {
+          DEFAULT: "#0B0D0C", // fondo negro/antracita
+          soft: "#141615",    // superficie de tarjetas
+          border: "#23262A",  // bordes sutiles
+        },
+        lime: {
+          DEFAULT: "#C6FF3D", // verde lima VidaFit
+          dark: "#9FDB1E",
+        },
+        ink: {
+          DEFAULT: "#FFFFFF",
+          muted: "#A7ADB4",
+          faint: "#6B7176",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-inter-tight)", "system-ui", "sans-serif"],
+      },
+      borderRadius: {
+        xl2: "1.25rem",
+      },
+    },
   },
-  "dependencies": {
-    "@supabase/ssr": "^0.5.2",
-    "@supabase/supabase-js": "^2.45.4",
-    "clsx": "^2.1.1",
-    "date-fns": "^3.6.0",
-    "lucide-react": "^0.445.0",
-    "next": "14.2.15",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20.14.0",
-    "@types/react": "^18.3.5",
-    "@types/react-dom": "^18.3.0",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13",
-    "typescript": "^5.5.4"
-  }
-}
+  plugins: [],
+};
+
+export default config;
